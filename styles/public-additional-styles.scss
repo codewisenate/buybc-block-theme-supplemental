@@ -1,24 +1,666 @@
-:root {
-	line-height: 1.5;
-	font-weight: 400;
-  
-	color-scheme: light dark;
-	color: $white;
-	background-color: $mineshaft;
-  
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+@import "./_buybc_variables.scss";
+@import "./_abs_images.scss";
+
+
+html,
+body.custom-buybc {
+
+  overflow-x: hidden;
+  position: relative;
 }
-  
+
 body {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	place-items: center;
-	min-width: 840px;
-	min-height: 100vh;
+  background-color: var(--wp--preset--color--white);
+  background-image: url("https://buybc.gov.bc.ca/app/uploads/sites/386/2023/02/wood-boards-bleached-page-bg-02.jpg");
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: contain;
 }
-  
+
+body.home {
+  background-image: url("https://buybc.gov.bc.ca/app/uploads/sites/386/2023/02/wood-boards-white-home-bg-03.jpg");
+  background-repeat: repeat;
+  background-position: top center;
+  background-size: contain;
+
+  .breadcrumb-nav-section {
+    display: none;
+  }
+}
+
+.hidden,
+.hide {
+  display: none !important;
+}
+
+.invisible>* {
+  opacity: 0;
+}
+
+.disabled,
+.pointer-events-none {
+  pointer-events: none;
+
+  >* {
+    pointer-events: none;
+  }
+}
+
+.wp-block-mfb-meta-field-block {
+  >* {
+    font-size: initial;
+  }
+}
+
+body.custom-buybc {
+
+  :where(.wp-block-group.has-background) {
+    padding: 1rem 2.375rem 0;
+  }
+
+  a {
+
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: var(--wp--preset--color--secondary-accent);
+    }
+  }
+
+  header {
+    z-index: 99;
+
+    .is-style-takeover-menu.is-style-grid .wp-block-navigation__container {
+
+      width: 100%;
+
+    }
+
+    .is-style-takeover-menu.is-style-grid .wp-block-navigation__responsive-container-content {
+      flex-direction: revert;
+      margin: auto;
+      width: calc(100% - 4rem);
+    }
+  }
+
+  footer {
+    .is-layout-constrained {
+      width: calc(100% - 4rem);
+      margin: auto;
+    }
+  }
+
+  .banner,
+  .landing-banner {
+    isolation: isolate;
+    z-index: 0;
+
+    h1,
+    h2,
+    h3,
+    p {
+      text-shadow: 1px 1px 3px rgba(49, 49, 50, 0.8);
+    }
+  }
+
+  .landing-banner {
+    .wp-block-buttons {
+      gap: 2rem;
+
+      .wp-block-button__link {
+        text-align: left;
+      }
+    }
+  }
+
+  &.contact,
+  &.events,
+  &.home {
+    .footer-banner {
+      min-height: 60vh !important;
+    }
+  }
+
+  .breadcrumb-nav-section {
+
+    .aioseo-breadcrumbs {
+
+      font-size: 14px !important;
+      padding: 0.5rem 1rem;
+
+      .aioseo-breadcrumb {
+
+        a {
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+
+            color: var(--wp--preset--color--secondary-accent);
+            text-decoration: underline;
+          }
+        }
+
+      }
+
+      .aioseo-breadcrumb-separator {
+
+        font-size: 14px !important;
+        margin: 0 0.25rem;
+      }
+    }
+  }
+
+  .is-card-portrait-image-over.no-stroke {
+
+    .wp-block-column {
+
+      border: none;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+  }
+
+  .is-style-takeover-menu .wp-block-navigation__container>.wp-block-navigation-item a {
+    width: auto;
+  }
+
+  .wp-block-navigation-item__content {
+    margin-bottom: 0.5rem;
+  }
+
+  .wp-block-social-links {
+    margin-top: 1rem;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.wp-block-navigation__responsive-close {
+  --wp--style--global--wide-size: 1170px;
+}
+
+#home-section-0 {
+  background-color: var(--wp--preset--color--primary-brand);
+  border-bottom: 2px solid var(--wp--preset--color--accent);
+  z-index: 9;
+
+  #logo-inverted {
+    background-image: $logoFullReverse;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    min-height: 100px;
+    display: none;
+
+    @include breakpoint-sm {
+      display: block;
+    }
+  }
+}
+
+#home-section-1 #logo {
+  background-image: $logoFull;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 6rem;
+  left: auto;
+  right: auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 660px;
+  min-height: 250px;
+  margin-bottom: 100px;
+}
+
+// Products
+
+li.products,
+li.recipes,
+li.restaurants,
+li.success_stories {
+  display: flex;
+}
+
+.product-category-label>* {
+  font-size: 1rem !important;
+}
+
+.back-link {
+  white-space: nowrap;
+
+  &::before {
+    content: " ";
+    float: left;
+    background-image: $arrowBack;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    margin: 10px;
+    height: 15px;
+    width: 11px;
+  }
+}
+
+// Product Item Icons
+.location-marker,
+.contact-marker,
+.phone-marker,
+.url-marker {
+  display: inline-block;
+  margin-right: 8px;
+  white-space: nowrap;
+
+  &::before {
+    content: " ";
+    background-image: $locationMarker;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    width: 18px;
+    height: 26px;
+    position: relative;
+    top: 8px;
+    margin-left: 8px;
+  }
+}
+
+.contact-marker {
+  &::before {
+    background-image: $contactMarker;
+    height: 23px;
+    width: 22px;
+    margin-right: 4px;
+  }
+}
+
+.phone-marker {
+  &::before {
+    background-image: $phoneMarker;
+    height: 23px;
+    width: 23px;
+    margin-right: 2px;
+  }
+}
+
+.url-marker {
+  &::before {
+    background-image: $urlMarker;
+    height: 23px;
+    width: 23px;
+    margin-right: 2px;
+  }
+}
+
+.google-link {
+  float: right;
+  white-space: nowrap;
+
+  @include breakpoint-xs {
+    float: none;
+  }
+}
+
+.post-feed-image,
+.product-image {
+  height: 324px;
+
+  a {
+    display: unset;
+
+    img {
+      width: 100%;
+      min-height: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+.product-select-group {
+  box-shadow: 0 0 3px rgba(49, 49, 50, 0.3);
+  position: relative;
+  top: -3rem;
+  margin-bottom: -3rem;
+
+  .product-select-buttons {
+    gap: 0.25rem 0.5rem;
+  }
+}
+
+.wp-block-query-pagination {
+  a {
+    color: var(--wp--preset--color--secondary-accent);
+  }
+
+  .wp-block-query-pagination-numbers {
+    >* {
+      padding: 0.25rem;
+    }
+  }
+}
+
+
+// What's From BC Page
+.whats-from-bc-infographic {
+  .infographic {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 370px;
+
+    @include breakpoint-sm {
+      min-height: 390px;
+    }
+
+    @include breakpoint-md {
+      min-height: 422px;
+    }
+
+    @include breakpoint-lg {
+      min-height: 422px;
+    }
+
+    @include breakpoint-xl {
+      min-height: 450px;
+    }
+
+    &.diverse-sector {
+      background-image: $diverseSector;
+    }
+
+    &.creating-jobs {
+      background-image: $creatingJobs;
+    }
+
+    &.small-businesses {
+      background-image: $smallBusinesses;
+    }
+
+    &.the-breakdown {
+      background-image: $theBreakdown;
+    }
+
+    &.small-footprint {
+      background-image: $smallFootprint;
+    }
+
+    &.big-business {
+      background-image: $bigBusiness;
+    }
+
+    &.big-breakdown {
+      background-position: center top;
+      background-image: $bigBreakdownMobile;
+      min-height: 780px;
+
+      @include breakpoint-sm {
+        background-image: $bigBreakdown;
+        min-height: 500px;
+      }
+    }
+  }
+}
+
+.overlay {
+  background-image: $edlBanner;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  top: 50% !important;
+  left: 50% !important;
+  pointer-events: none;
+  position: absolute;
+  z-index: 998;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0;
+  width: 50%;
+
+  @include breakpoint-md {
+    width: 90%;
+  }
+
+  @include breakpoint-lg {
+    width: 70%;
+  }
+}
+
+.social-contact>* {
+  font-size: inherit !important;
+}
+
+
+.wp-block-post-content {
+
+  ul:not(.filter-menu):not(.dropdown-menu):not(.gform_fields) li {
+    list-style: none;
+    margin: 0 0 0.5rem -1rem;
+    padding: 0;
+    position: relative;
+
+    &::before {
+      color: $headeryellow;
+      content: "\2022";
+      display: inherit;
+      font-size: 1.5rem;
+      left: -1.25rem;
+      position: absolute;
+    }
+
+    &.header {
+      left: -4rem;
+      overflow: hidden;
+      font-style: italic;
+    }
+  }
+
+  ul>ul {
+    margin-left: 2rem;
+  }
+
+  ol {
+    counter-reset: item;
+
+    li {
+      list-style: none;
+      padding: 0;
+      position: relative;
+      counter-increment: item;
+      margin-bottom: 1.5rem;
+      line-height: 1.5rem;
+      padding-left: 2rem;
+
+      &::before {
+        margin-right: -3rem;
+        content: counter(item);
+        background: #f4bb2d;
+        border-radius: 50%;
+        color: #313132;
+        font-size: 15px;
+        width: 27px;
+        text-align: center;
+        display: block;
+        height: 26px;
+        left: -4rem;
+        position: relative;
+        float: left;
+      }
+    }
+  }
+}
+
+.gform_wrapper {
+
+  & ::before,
+  & ::after {
+    font-family: dashicons;
+  }
+
+  .mce-i-resize::before {
+    content: "\f347";
+  }
+
+  form {
+    .gform_button {
+      background-color: $crimsonred;
+      border-radius: 0.5rem;
+      color: $white;
+      white-space: normal;
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.8;
+        outline: 2px solid $crimsonred;
+        outline-offset: 2px;
+      }
+    }
+
+    .gform_fields,
+    .gfield,
+    .gsection {
+      label {
+        color: $midnightblue;
+      }
+
+      .gfield_description {
+        color: $scorpiongrey;
+      }
+
+      .field_description_below {
+        .gsection_description {
+          color: $scorpiongrey;
+        }
+      }
+
+      .ginput_container {
+
+        input,
+        textarea {
+          border: 1px solid $dustygrey !important;
+          background-color: rgba($porcelain, 0.5);
+          color: $mineshaft;
+          border: 1px solid $dovegrey;
+          border-radius: 1rem;
+          padding: 1rem 1.5rem !important;
+          text-align: left;
+
+          &::placeholder {
+            color: $dustygrey;
+          }
+
+          &[type="checkbox"] {
+            margin: 0 5px 0 0 !important;
+            width: auto;
+          }
+        }
+
+        textarea {
+          border-radius: 2rem;
+          min-height: 300px;
+          resize: true;
+        }
+
+        label {
+          color: $dovegrey;
+          position: relative;
+          left: 0.66rem;
+          font-size: clamp(1rem, .25rem + 3.3333vw, 1.25rem);
+          margin: 6px 0px .5rem;
+        }
+
+        input:hover+label,
+        input:focus-visible+label {
+          color: $midnightblue;
+        }
+
+        select {
+          display: block;
+          color: $mineshaft;
+          padding: 1rem 1.5rem !important;
+          width: 100%;
+          max-width: 100%;
+          box-sizing: border-box;
+          margin: 0;
+          border: 1px solid $dovegrey !important;
+          box-shadow: 0 1px 0 1px rgba($mineshaft, 0.04);
+          border-radius: 1rem;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+          background-color: rgba($porcelain, 0.5);
+          background-image: $arrowDown;
+          background-repeat: no-repeat, repeat;
+          background-position: right 0.7em top 50%, 0 0;
+          background-size: 0.65em auto, 100%;
+        }
+
+        select::-ms-expand {
+          display: none;
+        }
+
+        select:hover {
+          border-color: $dustygrey;
+        }
+
+        select:focus-visible {
+          border-color: $porcelain;
+          box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+          box-shadow: 0 0 0 3px -moz-mac-focusring;
+          color: #222;
+          outline: none;
+        }
+
+        select:hover+label,
+        select:focus-visible+label {
+          color: $midnightblue;
+        }
+
+        select option {
+          font-weight: 400;
+        }
+
+        &.ginput_container_checkbox {
+          margin: 0.5rem 0;
+
+          .gfield_checkbox {
+            margin: 0;
+
+            input {
+              margin: 0 0 0 1rem;
+            }
+
+            label {
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .gfield_label {
+        font-size: clamp(1rem, .25rem + 3.3333vw, 1.25rem);
+      }
+    }
+  }
+}
+
+.wp-block-bcgov-block-theme-collapse .wp-block-bcgov-block-theme-collapse-item .collapse-header h3 button,
+.wp-block-bcgov-collapse .wp-block-bcgov-block-theme-collapse-item .collapse-header h3 button {
+  padding: 1rem;
+  span {
+    padding: 0;
+    line-height: 1.5;
+  }
+}

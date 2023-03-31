@@ -1,0 +1,432 @@
+.wp-block-image {
+
+	&.is-style-abs-img {
+		overflow: visible;
+		pointer-events: none;
+		position: absolute;
+		z-index: -1;
+		
+		&:not(.banner-img) {
+			width: clamp(30vw,0.25rem + 3.3333vw,40vw);
+		}
+
+	}
+}
+
+.banner {
+
+	#bok-choy {
+		display: none;
+		@include breakpoint-sm {
+			display: block;
+		}
+		top: -120px;
+		left: auto;
+		right: -170px;
+		bottom: auto;
+		width: 100%;
+		max-width: 700px;
+		transform: rotate(50deg);
+		@include breakpoint-md {
+			top: -150px;
+			right: -150px;
+			width: 75vw;
+		}
+	}
+
+	#charcuterie {
+		display: none;
+		@include breakpoint-sm {
+			display: block;
+		}
+		top: -185px;
+		left: calc(100% + 200px);
+		width: 600px;
+		transform: translate(-50%, -50%);
+		rotate: -50deg;
+		@include breakpoint-md {
+			top: -185px;
+			left: calc(100% + 200px);
+			width: 600px;
+			transform: translate(-50%, -50%);
+			rotate: -50deg;
+		}
+	}
+
+	#crab {
+		display: none;
+		@include breakpoint-sm {
+			display: block;
+			top: -250px;
+			right: -27vw;
+			width: 88vw;
+			transform: rotate(100deg);
+		}
+		@include breakpoint-md {
+			top: -250px;
+			right: -27vw;
+			width: 88vw;
+			transform: rotate(100deg);
+		}
+		@include breakpoint-lg {
+			top: -250px;
+			right: -8vw;
+			width: 68vw;
+		}
+		@include breakpoint-xl {
+			top: -230px;
+			left: auto;
+			right: -130px;
+			bottom: auto;
+			width: 790px;
+			transform: rotate(80deg);
+		}
+	}
+
+	#salsa {
+		display: none;
+		@include breakpoint-sm {
+			display: block;
+		}
+		left: calc(100% + 50px);
+		bottom: auto;
+		width: 900px;
+		top: -500px;
+		rotate: -20deg;
+		transform: translate(-50%, 0%);
+		@include breakpoint-md {
+			left: calc(100% + 50px);
+			width: 1240px;
+		}
+	}
+
+	#steak {
+		display: none;
+		@include breakpoint-sm {
+			display: block;
+		}
+		top: -180px;
+		left: calc(100% + -10px);
+		bottom: auto;
+		width: 680px;
+		rotate: 0;
+		transform: translate(-50%, 0%);
+		@include breakpoint-md {
+			top: -180px;
+			left: calc(100% + -70px);
+			width: 700px;
+		}
+	}
+}
+
+
+
+.headerImg {
+	z-index: 1;
+	body.mobile & {
+		position: absolute;
+	}
+}
+.home-section-1 {
+	position: relative;
+	#frittata {
+		top: -360px;
+		left: -220px;
+		right: auto;
+		bottom: auto;
+		width: clamp(300px, 50vw, 860px);
+	}
+	#tomatoes {
+		top: -210px;
+		left: 25vw;
+		right: auto;
+		bottom: auto;
+		z-index: 0;
+		width: clamp(250px,40vw,600px);
+	}
+	#honey {
+		bottom: auto;
+		top: -320px;
+		left: 55vw;
+		right: auto;
+		z-index: -1;
+		width: clamp(250px,50vw,600px);
+	}
+	#kale {
+		top: -290px;
+		right: -390px;
+		left: auto;
+		bottom: auto;
+		width: clamp(640px, 50vw, 870px);
+	}
+}
+.home-section-2 {
+	position: relative;
+	#crab {
+		top: 600px;
+		right: auto;
+		left: calc(100% + 60ch);
+		bottom: auto;
+		rotate: 90deg; 
+		transform: translateY(100%);
+		width: clamp(400px,50vw,900px);
+	}
+	#melted-butter {
+		right: auto;
+		bottom: auto;
+		z-index: -1;
+		top: 400px;
+		left: -330px;
+		transform: translate(0, 100%);
+	}
+	#crab-cracker {
+		right: auto;
+		bottom: auto;
+		z-index: -1;
+		top: 400px;
+		left: -270px;
+		transform: translateY(40%)
+	}
+}
+.home-section-3 {
+	position: relative;
+	#chicken-dinner {
+		top: -80px;
+		left: calc(0% - 90ch);
+		z-index: -1;
+		rotate: -170deg;
+		scale: 150%;
+		width: clamp(900px, 50vw, 1200px);
+	}
+}
+.home-section-4 {
+	position: relative;
+	#peaches {
+		top: 460px;
+		left: -390px;
+		right: auto;
+		bottom: auto;
+		z-index: -1;
+		rotate: -4deg;
+		scale: 130%;
+	}
+	#strawberry {
+		top: 330px;
+		left: 79%;
+		right: auto;
+		bottom: auto;
+		z-index: -1;
+		rotate: 63deg;
+		scale: 120%;
+	}
+}
+
+
+.landing-banner {
+	.absImg {
+		transform: translate(-50%, -50%);
+	}
+	h1 {
+		margin-top: 6rem;
+	}
+	body.about-contact & {
+		#ham {
+			left: calc(-10%);
+			width: clamp(120px, 50vw, 600px);
+			z-index: -1;
+			scale: 125%;
+			top: -40px;
+			rotate: 40deg;
+			@include breakpoint-md {
+				rotate: -13deg;
+				scale: 150%;
+				top: 50px;
+			}
+		}
+		#bok-choy {
+			bottom: 0;
+			left: calc(50%);
+			rotate: 180deg;
+			scale: 200%;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				scale: 140%;
+			}
+		}
+	}
+	body.events & {
+		#salad {
+			left: calc(-10%);
+			rotate: -13deg;
+			z-index: -1;
+			scale: 200%;
+			top: -5vh;
+			@include breakpoint-md {
+				scale: 150%;
+				top: 5vh;
+			}
+			@include breakpoint-lg {
+				scale: 125%;
+				top: 5vh;
+			}
+		}
+		#oysters {
+			bottom: -40px;
+			left: calc(100% + 160px);
+			scale: 300%;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: calc(100% + 150px);
+				scale: 160%;
+			}
+		}
+	}
+	body.find & {
+		#cherries {
+			left: -10%;
+			rotate: -13deg;
+			z-index: -1;
+			scale: 400%;
+			top: -45px;
+			@include breakpoint-md {
+				scale: 200%;
+				top: 5vh;
+			}
+		}
+		#chocolate {
+			bottom: -50px;
+			left: calc(100% - 130px);
+			scale: 200%;
+			rotate: -20deg;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: calc(100% - 380px);
+				scale: 100%;
+				bottom: -100px;
+				rotate: 0deg;
+			}
+		}
+	}
+	body.join & {
+		#granola {
+			left: -60px;
+			rotate: 55deg;
+			z-index: -1;
+			scale: 280%;
+			top: -50px;
+			@include breakpoint-md {
+				rotate: -13deg;
+				scale: 125%;
+				top: 50px;
+			}
+		}
+		#bagel {
+			bottom: 0;
+			left: calc(100% + 50px);
+			scale: 200%;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: calc(100% + 20px);
+				scale: 120%;
+			}
+		}
+	}
+	body.learn & {
+		#cheese-board {
+			left: calc(-10%);
+			rotate: -65deg;
+			z-index: -1;
+			max-width: 800px;
+			scale: 300%;
+			top: -5vh;
+			@include breakpoint-md {
+				scale: 200%;
+				top: 7vh;
+			}
+		}
+		#kale {
+			bottom: -10px;
+			left: calc(100% + 150px);
+			scale: 300%;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				bottom: -60px;
+				left: calc(100% + 125px);
+				scale: 150%;
+			}
+		}
+	}
+}
+
+body.learn-about-buybc {
+	.image-container {
+		position: relative;
+		#ham {
+			left: -50%;
+			width: clamp(120px, 50vw, 600px);
+			z-index: -1;
+			scale: 125%;
+			top: -150px;
+			rotate: 40deg;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: -15%;
+				rotate: -13deg;
+				scale: 150%;
+				top: -150px;
+			}
+		}
+		#salad {
+			left: calc(100% + 550px);
+			rotate: -13deg;
+			z-index: -1;
+			scale: 200%;
+			top: -5vh;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: calc(100% + 450px);
+				scale: 150%;
+				top: 5vh;
+			}
+			@include breakpoint-lg {
+				left: calc(100% + 350px);
+				scale: 125%;
+				top: 5vh;
+			}
+		}
+	}
+}
+
+body.whats-from-buybc {
+	.image-container {
+		position: relative;
+		#cereal {
+			left: -50%;
+			width: clamp(120px, 50vw, 600px);
+			z-index: -1;
+			scale: 100%;
+			top: -150px;
+			rotate: 40deg;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: -45%;
+				rotate: 15deg;
+				scale: 120%;
+				top: -150px;
+			}
+		}
+		#cookies {
+			left: calc(100% + 550px);
+			rotate: -13deg;
+			z-index: -1;
+			scale: 200%;
+			top: -5vh;
+			transform: translate(-50%, 0%);
+			@include breakpoint-md {
+				left: calc(100% + 150px);
+				scale: 125%;
+				top: -8vh;
+			}
+		}
+	}
+}

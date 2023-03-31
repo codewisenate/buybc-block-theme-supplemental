@@ -132,3 +132,18 @@ export function unEscapeCSS(cssStr) {
 	return cssStr;
 }
 
+
+
+/**
+ * moveSocialLinks() moves a social-links element from one designated parent to another.
+ * 
+ * @param s_element {Element} Element to be moved.
+ * @param p_element {Element} Parent element to be moved to.
+ */
+export function moveSocialLinks(){
+	const s_element = document.querySelector('ul.wp-block-social-links');
+	const p_element = document.querySelector('ul.wp-block-navigation__container');
+	if (document.querySelector('header.wp-block-template-part').contains(s_element)) {
+		p_element.lastElementChild.appendChild(s_element);
+	}
+}

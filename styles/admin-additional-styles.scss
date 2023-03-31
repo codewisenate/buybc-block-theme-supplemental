@@ -1,7 +1,74 @@
-/**
-* For general admin styles use: body.wp-admin { } 
-*/
+html body.wp-admin .wp-block-image {
+
+	&.is-style-abs-img {
+		overflow: visible;
+		pointer-events: none;
+		position: absolute;
+		z-index: -1;
+
+		&.bok-choy {
+			top: -120px;
+			left: auto;
+			right: -170px;
+			bottom: auto;
+			width: 100%;
+			max-width: 700px;
+			transform: rotate(50deg);
+		}
+	
+		&.charcuterie {
+			top: -444px;
+			left: auto;
+			right: -200px;
+			bottom: auto;
+			width: 700px;
+			transform: rotate(-100deg);
+		}
+	
+		&.crab {
+			top: -230px;
+			left: auto;
+			right: -130px;
+			bottom: auto;
+			width: 790px;
+			transform: rotate(80deg);
+		}
+	
+		&.salsa {
+			top: -404px;
+			left: auto;
+			right: -460px;
+			bottom: auto;
+			width: 1240px;
+			transform: rotate(-40deg);
+		}
+	
+		&.steak {
+			top: -380px;
+			left: auto;
+			right: -230px;
+			bottom: auto;
+			width: 980px;
+			transform: rotate(0);
+		}
+	}
+}
 
 /**
 * For admin editor based styles use: html :where(.editor-styles-wrapper) { } 
 */
+
+html :where(.editor-styles-wrapper) {
+	.landing-banner {
+		.is-style-abs-img { 
+			opacity: 0.1;
+		}
+
+		.wp-block-buttons {
+			gap: 2rem;
+			.wp-block-button__link {
+				text-align: left;
+			}
+		}
+	}
+}
